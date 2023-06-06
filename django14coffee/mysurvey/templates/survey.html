@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h4>커피 전문점에 대한 소비자 인식 조사</h4>
+	<form action='surveyProcess' method="post">{% csrf_token %}
+		<table>
+			<tr>
+				<td>귀하의 성별은?</td>
+				<td><label for='genm'>남자</label> 
+				<input type='radio' id='genm'name='gen' value='남' checked> 
+				<label for='genf'>여자</label> 
+				<input type='radio' id='genf' name='gen' value='여'></td>
+			</tr>
+			<tr>
+				<td>귀하의 나이는?</td>
+				<td>
+				<label for='age10'>10대</label> 
+				<input type='radio' id='age10' name='age' value='10' checked> 
+				<label for='age20'>20대</label> 
+				<input type='radio' id='age20' name='age' value='20'> 
+				<label for='age30'>30대</label> 
+				<input type='radio' id='age30' name='age' value='30'> 
+				<label for='age40'>40대</label> 
+				<input type='radio' id='age40' name='age' value='40'>
+				<label for='age50'>50대 이상</label> 
+				<input type='radio' id='age50' name='age' value='50'>
+				</td>
+			</tr>
+			<tr>
+				<td>선호하는 커피 전문점은?</td>
+				<td>
+				<label for='starbucks'>스타벅스</label> 
+				<input type='radio' id='starbucks' name='coffee' value='스타벅스' checked> 
+				<label for='bean'>커피빈</label> 
+				<input type='radio' id='bean' name='coffee' value='커피빈'> 
+				<label for='ediya'>이디야</label> 
+				<input type='radio' id='ediya' name='coffee' value='이디야'>
+				<label for='tom'>탐앤탐스</label> 
+				<input type='radio' id='tom' name='coffee' value='탐앤탐스'>
+				</td>
+			</tr>
+			<tr style="text-align: center;">
+				<td colspan='2'>
+				<input type="submit" value='설문완료'>&nbsp;
+				<input type="reset" value='초기화'>
+				<input type="button" value='메인 페이지' onclick='location.href="http://localhost"'>				
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

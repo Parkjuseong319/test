@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#game_time").keydown(function(e){
+		if(e.keyCode == 13){
+			// alert("b");
+			e.preventDefault();		// 기존에 적용되어 있는 이벤트 제거.
+			let value = $("#game_time").val().trim();	// trim은 앞뒤 공백 제거
+
+			if(!($.isNumeric(value))){
+				alert('숫자만 작성해주세요');
+				return;
+			}
+			if(!(value >= 0 && value <= 24)){
+				alert('시간은 0 ~ 24 사이의 수로 작성해주세요');
+				return;
+			}
+			
+			// $("#game_time").val(value);		// 가독성을 위한 문장이다.
+			frm.submit();
+		}
+	});
+});
+</script>
+</head>
+<body>
+<h3>설문지</h3>
+<form action="/survey" method='post' name='frm'>{% csrf_token %}
+<table>
+	<tr>
+		<td><b>1. 귀하의 직업은?</b></td>
+		</tr>
+	<tr>
+		<td>
+			<input type='radio' id='whitecolor' name="job" value='화이트칼라' checked="checked">
+			<label for='whitecolor'>1)화이트칼라</label>&nbsp;&nbsp;
+			<input type='radio' id='bluecolor' name="job" value='블루칼라'>
+			<label for='bluecolor'>2)블루칼라</label>&nbsp;&nbsp;
+			<input type='radio' id='student' name="job" value='학생'>
+			<label for='student'>3)학생</label>&nbsp;&nbsp;
+			<input type='radio' id='etc' name="job" value='기타'>
+			<label for='etc'>4)기타</label>
+		</td>
+	</tr>
+	<tr>
+		<td><b>2. 귀하의 성별은?</b></td>
+	</tr>
+	<tr>
+		<td>
+			<input type='radio' id='male' name="gender" value='남자' checked="checked">
+			<label for='male'>1)남자</label>&nbsp;&nbsp;
+			<input type='radio' id='female' name="gender" value='여자'>
+			<label for='female'>2)여자</label>
+		</td>
+	</tr>
+	<tr>
+		<td><b>3. 귀하의 하루 평균 게임 이용시간은?</b></td>
+	</tr>
+	<tr>
+		<td>시간입력 : <input type="text" id="game_time" name='game_time' placeholder='ex) 1.0, 0.5, 3.0'></td>
+	</tr>
+
+</table>
+</form>
+</body>
+</html>

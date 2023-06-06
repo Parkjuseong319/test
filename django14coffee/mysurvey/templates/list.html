@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>커피 선호도 분석 결과</h3>
+<a href="/">홈 페이지</a><br/>
+{% if datas %}
+	{{datas|safe}}
+{% else %}
+	<h3>조사 결과가 없어요 ㅠㅅㅠ</h3>
+{% endif %}
+<br/>
+분석에 참여한 데이터 건수 : {{count}}
+<br/>
+교차분석 결과
+{% if msg %}
+	{{msg|safe}}
+{% endif %}
+<br/><br/><br/>
+<h5>그래프</h5>
+<img src='/static/images/coffee.png' width='350' title='다방커피가 근본이지'>
+<br/><br/><br/>
+<a href="/survey">설문조사</a>페이지로<br/>
+</body>
+</html>
